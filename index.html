@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Search any city for live weather, a 7-day forecast and weather-based travel suggestions.">
+  <title>Smart Weather &amp; Travel Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-sky="clear-day">
+  <div class="wrap">
+    <header>
+      <h1>Smart Weather <span>&amp; Travel</span></h1>
+      <form id="search-form" novalidate>
+        <label for="city" class="sr-only">City name</label>
+        <input id="city" type="text" placeholder="Search a city, e.g. Goa" autocomplete="off" autofocus>
+        <button type="submit" id="go">Search</button>
+        <button type="button" id="unit" aria-label="Switch temperature unit">&deg;C</button>
+      </form>
+      <div id="recent" class="recent" aria-label="Recent searches"></div>
+      <p id="message" role="alert" hidden></p>
+    </header>
+
+    <main id="dash" hidden>
+      <section class="card current" aria-live="polite">
+        <div class="now">
+          <div>
+            <h2 id="place"></h2>
+            <p id="condition"></p>
+            <p id="temp" class="big"></p>
+          </div>
+          <div id="now-icon" class="icon xl" aria-hidden="true"></div>
+        </div>
+        <dl id="stats"></dl>
+      </section>
+
+      <section class="card travel">
+        <h2>Travel suggestions</h2>
+        <p id="verdict" class="verdict"></p>
+        <p id="best-day" class="best"></p>
+        <div class="cols">
+          <div><h3>Things to do</h3><ul id="todo"></ul></div>
+          <div><h3>What to pack</h3><ul id="pack"></ul></div>
+        </div>
+        <p id="tip" class="tip"></p>
+      </section>
+
+      <section>
+        <h2>7-day forecast</h2>
+        <ol id="forecast" class="forecast"></ol>
+      </section>
+    </main>
+    <footer>Weather data by <a href="https://open-meteo.com/">Open-Meteo</a>. Suggestions are guidance only; always check local advisories before travelling.</footer>
+  </div>
+  <script src="js/icons.js"></script>
+  <script src="js/travel.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
